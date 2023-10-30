@@ -6,10 +6,10 @@ import (
 )
 
 
-var RegisterRoutes = func (r *mux.Route) {
-	r.HandlerFunc("/book/", controllers.CreatBook).Methods("POST")
-	r.HandlerFunc("/book/", controllers.GetBook).Methods("GET")
-	r.HandlerFunc("/book/{id}", controllers.GetBookById).Methods("GET")
-	r.HandlerFunc("/book/{id}", controllers.UpdateById).Methods("PUT")
-	r.HandlerFunc("/book/{id}", controllers.DeleteById).Methods("DELETE")
+var RegisterRoutes = func (r *mux.Router) {
+	r.HandleFunc("/book", controllers.CreatBook).Methods("POST")
+	r.HandleFunc("/books", controllers.GetBooks).Methods("GET")
+	r.HandleFunc("/book/{id}", controllers.GetBookById).Methods("GET")
+	r.HandleFunc("/book/{id}", controllers.UpdateBook).Methods("PUT")
+	r.HandleFunc("/book/{id}", controllers.DeleteBook).Methods("DELETE")
 }
